@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CD collection</title>
+    </head>
+    <body>
+        <h1>Here are your cd's</h1>
+        {% if cds is not empty %}
+            {% for cd in cds %}
+                <p>{{cd.get('title')}}, {{cd.get('artist')}}, {{cd.get('year')}}</p>
+            {% endfor %}
+        {% endif %}
+        <form action="/add" method="post">
+            <button type="submit" name="button">Add a cd</button>
+        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <form action="/delete" method="post">
+            <button type="submit" name="button">Delete all</button>
+        </form>
+    </body>
+</html>

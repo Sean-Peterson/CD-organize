@@ -2,14 +2,14 @@
 
     class CD
     {
-        private $title;
         private $artist;
+        private $title;
         private $year;
 
-        function __construct($title, $artist, $year)
+        function __construct($artist, $title, $year)
         {
-            $this->title=$title;
             $this->artist=$artist;
+            $this->title=$title;
             $this->year=$year;
         }
 
@@ -31,9 +31,20 @@
             }
         }
 
+        function save()
+        {
+            array_push($_SESSION['cd_array'], $this);
+        }
 
+        static function getAll()
+        {
+            return $_SESSION['cd_array'];
+        }
 
-
+        static function delete()
+        {
+            return $_SESSION['cd_array'] = array();
+        }
 
 
     }
