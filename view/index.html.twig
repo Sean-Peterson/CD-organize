@@ -8,11 +8,17 @@
         <h1>Here are your cd's</h1>
         {% if cds is not empty %}
             {% for cd in cds %}
-                <p>{{cd.get('title')}}, {{cd.get('artist')}}, {{cd.get('year')}}</p>
+                <p>{{cd.get('artist')}}, {{cd.get('title')}}, {{cd.get('year')}}</p>
             {% endfor %}
         {% endif %}
         <form action="/add" method="post">
             <button type="submit" name="button">Add a cd</button>
+        </form>
+        <br>
+        <br>
+        <form action="/search_artist" method="post">
+            <input type="text" name="artist_name" placeholder="Search by artist">
+            <button type="submit" name="button">Submit</button>
         </form>
         <br>
         <br>

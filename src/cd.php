@@ -46,7 +46,6 @@
             return $_SESSION['cd_array'] = array();
         }
 
-
     }
 
 

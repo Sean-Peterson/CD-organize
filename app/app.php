@@ -20,12 +20,19 @@
     });
 
     $app->post("/submit", function() use ($app) {
-        $new_cd = new CD($_POST['artist'], $_POST['title'], $_POST['year']);
+        $new_cd = new CD(ucfirst(strtolower($_POST['artist'])), ucfirst(strtolower($_POST['title'])), $_POST['year']);
         $new_cd->save();
         return $app['twig']->render('index.html.twig', array('cds' => CD::getAll()));
     });
 
+    $app->post("/search_artist", function() use ($app) {
+        $artist_name = ucfirst(strtolower($_POST['artist_name']));
+        return $app['twig']->render('list_by_artist.html.twig', array('cds' => CD::getAll(), 'artist_name'=>$artist_name));
+    });
 
+    $app->post("/go_home", function() use ($app) {
+        return $app['twig']->render('index.html.twig', array('cds' => CD::getAll()));
+    });
 
 
 

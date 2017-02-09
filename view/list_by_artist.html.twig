@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Artist</title>
+    </head>
+    <h1>IT WORKS</h1>
+    <body>
+        {% for cd in cds %}
+            {% if artist_name in cd.get('artist') %}
+                <p>{{cd.get('artist')}}, {{cd.get('title')}}, {{cd.get('year')}}</p>
+            {% endif %}
+        {% endfor %}
+        <form action="go_home" method="post">
+            <button type="submit" name="button">Go Home</button>
+        </form>
+    </body>
+</html>
